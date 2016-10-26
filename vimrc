@@ -249,11 +249,11 @@ inoremap jk <ESC>
 """"""""""""""""" Clears the search highlights
 nmap <silent> <leader><space> :noh<CR>
 """"""""""""""""" Add comments on the left
-nmap // <Bslash>cl
-vmap // <Bslash>cl
+nmap // <leader>cl
+vmap // <leader>cl
 """"""""""""""""" Toggle comments
-nmap ?? <Bslash>ci
-vmap ?? <Bslash>ci
+nmap ?? <leader>ci
+vmap ?? <leader>ci
 """"""""""""""""" Vimfiler explorer window
 nnoremap <F2> :VimFiler<CR>
 """"""""""""""""" Buffergator toggle
