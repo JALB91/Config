@@ -153,7 +153,7 @@ Plug 'can3p/incbool.vim'                " The plugin allows to increment not onl
 Plug 'kshenoy/vim-signature'            " Plugin to toggle, display and navigate marks 
 Plug 'undofile_warn.vim'                " Warn old undo
 Plug 'tpope/vim-fugitive'               " A Git wrapper so awesome, it should be illegal
-Plug 'lifepillar/vim-mucomplete'        " Chained completion that works the way you want!
+Plug 'Valloric/YouCompleteMe'           " Chained completion that works the way you want!
 Plug 'Shougo/vimfiler.vim' | Plug 'Shougo/unite.vim' " Powerful file explorer implemented by Vim script
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes' " lean & mean status/tabline for vim that's light as air
 """""""""""""""""""""""""""""""""""""""""
@@ -187,6 +187,13 @@ let g:vimfiler_tree_opened_icon = '▾'       "
 let g:vimfiler_tree_closed_icon = '▸'       "
 let g:vimfiler_readonly_file_icon = '✗'     "
 let g:vimfiler_marked_file_icon = '✓'       "
+
+""""""""""""""""""""""""""""""""""""""""""""""" YouCompleteMe
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_auto_trigger = 1
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_confirm_extra_conf = 0
+set completeopt-=preview
 
 """""""""""""""""""""""""""""""""""""""""""""""""" vim-airline
 set laststatus=2                                 " Airline statusbar always up
@@ -224,9 +231,6 @@ endif
 
 """"""""""""""""""""""""""""""""""""" Ag settings
 set runtimepath^=~/.vim/bundle/ag
-
-""""""""""""""""""""""""""""""""""""" mucomplete settings
-let g:mucomplete#enable_auto_at_startup = 0
 
 """"""""""""""""""""""""""""" Colour settings
 set t_Co=256                "
@@ -277,6 +281,7 @@ nmap <leader>9 <F9>
 nmap <leader>12 <F12>
 """"""""""""""""" Save with sudo privileges
 cnoremap w! SudoWrite
+nnoremap <leader>w :w!<CR>
 """"""""""""""""" Move vertically over fake lines
 nnoremap j gj
 nnoremap k gk
