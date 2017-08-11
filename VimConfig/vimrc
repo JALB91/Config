@@ -147,15 +147,14 @@ Plug 'scrooloose/nerdcommenter'         " Vim plugin for intensely orgasmic comm
 Plug 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
 Plug 'jiangmiao/auto-pairs'             " Insert or delete brackets, parens, quotes in pair
 Plug 'jeetsukumaran/vim-buffergator'    " Vim plugin to list, select and switch between buffers
-Plug 'ctrlpvim/ctrlp.vim'               " Fuzzy file, buffer, mru, tag, etc finder
 Plug 'rking/ag.vim'                     " This plugin is a front for ag, A.K.A. the_silver_searcher
 Plug 'can3p/incbool.vim'                " The plugin allows to increment not only numbers but also and bools 
 Plug 'kshenoy/vim-signature'            " Plugin to toggle, display and navigate marks 
 Plug 'undofile_warn.vim'                " Warn old undo
 Plug 'tpope/vim-fugitive'               " A Git wrapper so awesome, it should be illegal
 Plug 'Valloric/YouCompleteMe'           " Chained completion that works the way you want!
-Plug 'Shougo/vimfiler.vim' | Plug 'Shougo/unite.vim' " Powerful file explorer implemented by Vim script
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes' " lean & mean status/tabline for vim that's light as air
+Plug 'scrooloose/nerdtree'
 """""""""""""""""""""""""""""""""""""""""
 Plug 'nanotech/jellybeans.vim'          "
 Plug 'morhetz/gruvbox'                  "
@@ -178,15 +177,6 @@ let g:NERDDefaultAlign = 'left' " Align line-wise comment delimiters flush left
 let g:indent_guides_guide_size = 1              "
 let g:indent_guides_enable_on_vim_startup = 1   "
 let g:indent_guides_start_level = 2             "
-
-""""""""""""""""""""""""""""""""""""""""""""" vimfiler
-let g:vimfiler_as_default_explorer = 1      "
-let g:vimfiler_safe_mode_by_default = 0     "
-let g:vimfiler_ignore_pattern = ""          " Show hidden files
-let g:vimfiler_tree_opened_icon = '▾'       "
-let g:vimfiler_tree_closed_icon = '▸'       "
-let g:vimfiler_readonly_file_icon = '✗'     "
-let g:vimfiler_marked_file_icon = '✓'       "
 
 """"""""""""""""""""""""""""""""""""""""""""""" YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion = 1
@@ -259,8 +249,8 @@ vmap // <leader>cl
 """"""""""""""""" Toggle comments
 nmap ?? <leader>ci
 vmap ?? <leader>ci
-""""""""""""""""" Vimfiler explorer window
-nnoremap <F2> :VimFiler<CR>
+""""""""""""""""" NerdTree explorer window
+nnoremap <F2> :NERDTreeToggle<CR>
 """"""""""""""""" Buffergator toggle
 nnoremap <F3> :BuffergatorToggle<CR>
 """"""""""""""""" Toggle paste mode
