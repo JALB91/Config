@@ -264,6 +264,9 @@ nmap <leader>[ :bprevious<CR>
 nmap <leader>] :bnext<CR>
 """"""""""""""""" Close buffer
 nmap <leader>][ :bp <BAR> bd #<cr>
+""""""""""""""""" YCM commands
+nmap <leader>- :YcmCompleter GoToDeclaration
+nmap <leader>0 :YcmCompleter GoToDefinition
 """"""""""""""""" Alternative bindings for function keys
 nmap <leader>2 <F2>
 nmap <leader>3 <F3>
