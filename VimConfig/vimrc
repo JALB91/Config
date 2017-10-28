@@ -184,6 +184,7 @@ let g:ycm_auto_trigger = 1
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_collect_identifiers_from_tags_file = 1
 set completeopt-=preview
 
 """""""""""""""""""""""""""""""""""""""""""""""""" vim-airline
@@ -263,10 +264,10 @@ nnoremap <F12> :Ag <cword><CR>
 nmap <leader>[ :bprevious<CR>
 nmap <leader>] :bnext<CR>
 """"""""""""""""" Close buffer
-nmap <leader>][ :bp <BAR> bd #<cr>
+nmap <leader>q :bp <BAR> bd #<cr>
 """"""""""""""""" YCM commands
-nmap <leader>- :YcmCompleter GoToDeclaration
-nmap <leader>0 :YcmCompleter GoToDefinition
+nmap <leader>- :YcmCompleter GoToDeclaration<cr>
+nmap <leader>0 :YcmCompleter GoToDefinition<cr>
 """"""""""""""""" Alternative bindings for function keys
 nmap <leader>2 <F2>
 nmap <leader>3 <F3>
