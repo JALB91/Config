@@ -120,6 +120,10 @@ export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0/modules/
 alias eb='vim ~/.bashrc'
 alias sb='source ~/.bashrc'
 alias ev='vim ~/.vimrc'
+alias eg='vim ~/.gitconfig'
+alias open='xdg-open'
+
+
 
 # Aliases for pushd and popd
 alias pd='pushd'
