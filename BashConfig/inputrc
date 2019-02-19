@@ -1,3 +1,8 @@
 $include /etc/inputrc
 
+Control-j: menu-complete
+Control-f: complete-filename
+
+set completion-display-width 1
 set completion-ignore-case On
+set bell-style none

@@ -25,7 +25,7 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-shopt -s globstar
+#shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -88,6 +88,7 @@ fi
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
+alias ll='ls -1'
 alias la='ls -a'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -114,17 +115,44 @@ if ! shopt -oq posix; then
   fi
 fi
 
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0/modules/
 
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export HISTCONTROL=erasedups
+
+#Git bash completion
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
 # Custom alias
-alias eb='vim ~/.bashrc'
-alias sb='source ~/.bashrc'
+alias eb='vim ~/.bash_profile'
+alias sb='source ~/.bash_profile'
 alias ev='vim ~/.vimrc'
 alias eg='vim ~/.gitconfig'
-alias open='xdg-open'
-
-
 
 # Aliases for pushd and popd
 alias pd='pushd'
 alias pp='popd'
+
+source /Users/damianocalcagni/CandyTool/candy.macos
+source /Users/damianocalcagni/CandyTool/ccsrc.sh
+alias gsu='git submodule update --init --recursive'
+alias gs='git status'
+alias gl='git log --graph --decorate --oneline'
+alias gf='git fetch'
+alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
+alias gsd='git diff-tree --no-commit-id --name-only -r'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+export PATH="/usr/local/opt/qt/bin:$PATH"
+export PATH=$PATH:/Users/damianocalcagni/Library/Android/sdk/ndk-bundle
+export PATH=$PATH:/Users/damianocalcagni/Library/Android/sdk/build-tools/27.0.3
+export NDK=/Users/damianocalcagni/Library/Android/sdk/ndk-bundle
+export ANDROID_SDK=/Users/damianocalcagni/Library/Android/sdk
+
+# MacPorts Installer addition on 2018-09-24_at_10:57:57: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+source ~/alias_completion.sh
