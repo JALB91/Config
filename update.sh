@@ -1,8 +1,23 @@
 #!/bin/bash
 
-cp `dirname $0`/VimConfig/vimrc $HOME/.vimrc
-cp -r `dirname $0`/VimConfig/vim $HOME/.vim
-cp `dirname $0`/VimConfig/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
+_OS=""
+TARGET_FILE=""
 
-cp `dirname $0`/BashConfig/bashrc $HOME/.bashrc
-cp `dirname $0`/BashConfig/inputrc $HOME/.inputrc
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	_OS="Linux"
+	TARGET_FILE=".bashrc"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	_OS="OSX"
+	TARGET_FILE=".bash_profile"
+elif [[ "$OSTYPE" == "cygwin" || "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
+	_OS="WIN32"
+	TARGET_FILE=".bashrc"
+else
+	echo "Unknown OS"
+	return
+fi
+
+ln `dirname $0`/VimConfig/vimrc $HOME/.vimrc
+
+ln `dirname $0`/BashConfig/bashrc $HOME/$TARGET_FILE
+ln `dirname $0`/BashConfig/inputrc $HOME/.inputrc

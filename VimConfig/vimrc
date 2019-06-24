@@ -152,7 +152,7 @@ Plug 'can3p/incbool.vim'                " The plugin allows to increment not onl
 Plug 'kshenoy/vim-signature'            " Plugin to toggle, display and navigate marks 
 Plug 'undofile_warn.vim'                " Warn old undo
 Plug 'tpope/vim-fugitive'               " A Git wrapper so awesome, it should be illegal
-Plug 'Valloric/YouCompleteMe'           " Chained completion that works the way you want!
+"Plug 'Valloric/YouCompleteMe'           " Chained completion that works the way you want!
 "Plug 'justmao945/vim-clang'             "C++ Clang completer
 "Plug 'Rip-Rip/clang_complete'           "C++ Clang completer
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes' " lean & mean status/tabline for vim that's light as air

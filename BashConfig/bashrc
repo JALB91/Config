@@ -139,23 +139,9 @@ alias eg='vim ~/.gitconfig'
 alias pd='pushd'
 alias pp='popd'
 
-source /Users/damianocalcagni/CandyTool/candy.macos
-source /Users/damianocalcagni/CandyTool/ccsrc.sh
 alias gsu='git submodule update --init --recursive'
 alias gs='git status'
 alias gl='git log --graph --decorate --oneline'
 alias gf='git fetch'
 alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 alias gsd='git diff-tree --no-commit-id --name-only -r'
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH=$PATH:/Users/damianocalcagni/Library/Android/sdk/ndk-bundle
-export PATH=$PATH:/Users/damianocalcagni/Library/Android/sdk/build-tools/27.0.3
-export NDK=/Users/damianocalcagni/Library/Android/sdk/ndk-bundle
-export ANDROID_SDK=/Users/damianocalcagni/Library/Android/sdk
-
-# MacPorts Installer addition on 2018-09-24_at_10:57:57: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-source ~/alias_completion.sh
