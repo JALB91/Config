@@ -21,3 +21,5 @@ ln `dirname $0`/VimConfig/vimrc $HOME/.vimrc
 
 ln `dirname $0`/BashConfig/bashrc $HOME/$TARGET_FILE
 ln `dirname $0`/BashConfig/inputrc $HOME/.inputrc
+
+cp -r VimConfig/vim $HOME/.vim
