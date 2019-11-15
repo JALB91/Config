@@ -150,13 +150,15 @@ Plug 'jeetsukumaran/vim-buffergator'    " Vim plugin to list, select and switch 
 Plug 'rking/ag.vim'                     " This plugin is a front for ag, A.K.A. the_silver_searcher
 Plug 'can3p/incbool.vim'                " The plugin allows to increment not only numbers but also and bools 
 Plug 'kshenoy/vim-signature'            " Plugin to toggle, display and navigate marks 
-Plug 'undofile_warn.vim'                " Warn old undo
+"Plug 'undofile_warn.vim'                " Warn old undo
 Plug 'tpope/vim-fugitive'               " A Git wrapper so awesome, it should be illegal
-"Plug 'Valloric/YouCompleteMe'           " Chained completion that works the way you want!
+"Plug 'zxqfl/tabnine-vim'				" Autocompletions
+Plug 'Valloric/YouCompleteMe'           " Chained completion that works the way you want!
 "Plug 'justmao945/vim-clang'             "C++ Clang completer
 "Plug 'Rip-Rip/clang_complete'           "C++ Clang completer
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes' " lean & mean status/tabline for vim that's light as air
 Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 """""""""""""""""""""""""""""""""""""""""
 Plug 'nanotech/jellybeans.vim'          "
 Plug 'morhetz/gruvbox'                  "
