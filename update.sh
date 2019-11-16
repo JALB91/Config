@@ -1,25 +1,44 @@
 #!/bin/bash
 
-_OS=""
+OS=""
 TARGET_FILE=""
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	_OS="Linux"
-	TARGET_FILE=".bashrc"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-	_OS="OSX"
-	TARGET_FILE=".bash_profile"
+  OS="Linux"
+  TARGET_FILE=".bashrc"
+elif [[ "$OSTYPE" == [Dd]"arwin"* ]]; then
+  OS="OSX"
+  TARGET_FILE=".bash_profile"
 elif [[ "$OSTYPE" == "cygwin" || "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
-	_OS="WIN32"
-	TARGET_FILE=".bashrc"
+  OS="WIN32"
+  TARGET_FILE=".bashrc"
 else
-	echo "Unknown OS"
-	return
+  echo "Unknown OS"
+  exit
 fi
 
-ln `dirname $0`/VimConfig/vimrc $HOME/.vimrc
+create_link() {
+	if [[ $1 && -e $1 && -f $1 ]]; then
+		echo -n "A \"$1\" file already exist, do you want to overwrite it? [y/n] "
+		while read -r -n 1; do
+			if [[ $REPLY == [Yy] ]]; then
+				rm $1
+				ln $2 $1
+				echo
+				break
+			elif [[ $REPLY == [Nn] ]]; then
+				echo
+				return
+			fi
+		done
+	else 
+		ln $2 $1
+	fi
+}
 
-ln `dirname $0`/BashConfig/bashrc $HOME/$TARGET_FILE
-ln `dirname $0`/BashConfig/inputrc $HOME/.inputrc
+create_link $HOME/$TARGET_FILE `dirname $0`/BashConfig/bashrc
+create_link $HOME/.aliases `dirname $0`/BashConfig/aliases
+create_link $HOME/.inputrc `dirname $0`/BashConfig/inputrc
 
+create_link $HOME/.vimrc `dirname $0`/VimConfig/vimrc
 cp -r VimConfig/vim $HOME/.vim
