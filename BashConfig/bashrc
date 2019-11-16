@@ -25,7 +25,7 @@ shopt -s checkwinsize
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
 
-# Advanded pattern matching
+# Advanced pattern matching
 shopt -s extglob
 
 # make less more friendly for non-text input files, see lesspipe(1)
@@ -41,10 +41,8 @@ case "$TERM" in
 	xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+# uncomment for a colored prompt, if the terminal has the capability;
+force_color_prompt=yes
 
 if [[ -n "$force_color_prompt" ]]; then
 	if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
@@ -63,15 +61,6 @@ else
 	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-	xterm*|rxvt*)
-		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-		;;
-	*)
-		;;
-esac
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -98,7 +87,10 @@ fi
 [[ -r ~/.fzf.bash ]] && source ~/.fzf.bash
 
 # Aliases
-[[ -e ~/.aliases ]] && source ~/.aliases
+[[ -r ~/.aliases ]] && source ~/.aliases
+
+# Alias Completion
+[[ -r ~/.alias_completion.sh ]] && source ~/.alias_completion.sh
 
 # OSX custom
 if [[ $OSTYPE == [Dd]"arwin"* ]]; then

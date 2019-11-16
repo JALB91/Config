@@ -37,8 +37,10 @@ create_link() {
 }
 
 create_link $HOME/$TARGET_FILE `dirname $0`/BashConfig/bashrc
-create_link $HOME/.aliases `dirname $0`/BashConfig/aliases
 create_link $HOME/.inputrc `dirname $0`/BashConfig/inputrc
 
 create_link $HOME/.vimrc `dirname $0`/VimConfig/vimrc
 cp -r VimConfig/vim $HOME/.vim
+
+create_link $HOME/.aliases `dirname $0`/BashConfig/aliases
+cp `dirname $0`/BashConfig/alias_completion.sh $HOME/.alias_completion.sh
