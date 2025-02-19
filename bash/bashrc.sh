@@ -3,7 +3,7 @@
 # If not running interactively, don't do anything
 case $- in
 	*i*) ;;
-	*) return;;
+	*) exit;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -41,7 +41,6 @@ case "$TERM" in
 	xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability;
 force_color_prompt=yes
 
 if [[ -n "$force_color_prompt" ]]; then
@@ -83,14 +82,18 @@ fi
 [[ -r /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
 [[ -r /usr/local/etc/profile.d/bash_completion.sh ]] && . /usr/local/etc/profile.d/bash_completion.sh
 
-# FZF
-[[ -r ~/.fzf.bash ]] && source ~/.fzf.bash
+CURR_DIR=$(dirname -- $BASH_SOURCE)
 
 # Aliases
-[[ -r ~/.aliases ]] && source ~/.aliases
+source $CURR_DIR/aliases.sh
 
 # Alias Completion
-[[ -r ~/.alias_completion.sh ]] && source ~/.alias_completion.sh
+source $CURR_DIR/alias_completion.sh
+
+# Git completion
+source $CURR_DIR/git-completion.sh
+
+export INPUTRC=$CURR_DIR/inputrc
 
 # OSX custom
 if [[ $OSTYPE == [Dd]"arwin"* ]]; then
@@ -105,4 +108,20 @@ if [[ $OSTYPE == [Dd]"arwin"* ]]; then
 
 	export BASH_SILENCE_DEPRECATION_WARNING=1
 	export LC_ALL=en_US.UTF-8
+	export PATH="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/:$PATH"
+
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+
+	export JAVA_HOME="$(brew --prefix)/Cellar/openjdk@21/21.0.5/"
+	export PATH="$(brew --prefix)/opt/python@3.11/libexec/bin:$PATH"
 fi
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/damiano.calcagni/google-cloud-sdk/path.bash.inc' ]; then . '/Users/damiano.calcagni/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/damiano.calcagni/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/damiano.calcagni/google-cloud-sdk/completion.bash.inc'; fi
+
+export CCACHE_DIR=~/.devcache/ccache
+export XDG_CONFIG_HOME="${HOME}/Documents/dev/Config"
