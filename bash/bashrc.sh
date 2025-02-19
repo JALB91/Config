@@ -118,10 +118,10 @@ fi
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/damiano.calcagni/google-cloud-sdk/path.bash.inc' ]; then . '/Users/damiano.calcagni/google-cloud-sdk/path.bash.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/google-cloud-sdk/path.bash.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/damiano.calcagni/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/damiano.calcagni/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-cloud-sdk/completion.bash.inc"; fi
 
-export CCACHE_DIR=~/.devcache/ccache
-export XDG_CONFIG_HOME="${HOME}/Documents/dev/Config"
+export CCACHE_DIR="$HOME/.devcache/ccache"
+export XDG_CONFIG_HOME="$HOME/Documents/dev/Config"
